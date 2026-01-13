@@ -1,0 +1,130 @@
+/* Home.css - Perfect Hero Buttons */
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 640px) {
+  .hero-buttons {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+
+/* Order Now Button - Primary */
+.btn-order {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: white;
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FF8C42 100%);
+  border-radius: 2rem;
+  box-shadow: 
+    0 20px 40px rgba(255, 107, 53, 0.4),
+    0 0 0 1px rgba(255, 107, 53, 0.3);
+  transform: translateY(0);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  border: 2px solid rgba(255, 107, 53, 0.3);
+  backdrop-filter: blur(10px);
+  min-height: 72px;
+}
+
+.btn-order:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 
+    0 30px 60px rgba(255, 107, 53, 0.6),
+    0 0 0 1px rgba(255, 107, 53, 0.5);
+  background: linear-gradient(135deg, #FF5A1F 0%, #F68A0D 50%, #FF7A30 100%);
+}
+
+.btn-order:active {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.btn-order::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-order:hover::before {
+  left: 100%;
+}
+
+/* Arrow Animation */
+.btn-order-arrow {
+  display: inline-block;
+  margin-left: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-order:hover .btn-order-arrow {
+  transform: translateX(8px);
+}
+
+/* Restaurant Login Button - Secondary */
+.btn-restaurant {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #FF6B35;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 4px solid rgba(255, 107, 53, 0.4);
+  border-radius: 2rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+  transform: translateY(0);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  min-height: 72px;
+}
+
+.btn-restaurant:hover {
+  color: white;
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+  border-color: rgba(255, 107, 53, 0.8);
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 
+    0 30px 60px rgba(255, 107, 53, 0.4),
+    0 0 0 1px rgba(255, 107, 53, 0.3);
+}
+
+.btn-restaurant:active {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 639px) {
+  .btn-order,
+  .btn-restaurant {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+    min-height: 64px;
+  }
+}
+
+/* Icon positioning */
+.btn-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}

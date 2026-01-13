@@ -1,0 +1,11 @@
+@reference "tailwindcss";  /* ← ADD THIS FIRST LINE */
+
+.container {
+  @apply pt-4 min-h-screen bg-gradient-to-br from-orange-50 to-yellow-50;
+}
+
+.header {
+  @apply bg-gradient-to-r from-orange-500 via-orange-600 to-yellow-500 text-white p-6 rounded-b-3xl shadow-2xl relative overflow-hidden;
+}
+
+/* ... rest of your styles remain the same */
