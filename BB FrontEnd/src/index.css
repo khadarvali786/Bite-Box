@@ -3,3 +3,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 
+/* Global tap/press styles for buttons used across app */
+.login-btn:active {
+	transform: scale(0.92);
+	box-shadow: 0 6px 15px rgba(0,0,0,0.12), inset 0 4px 12px rgba(0,0,0,0.08);
+	transition: transform .1s ease, box-shadow .1s ease;
+}
+
+/* Alternate smaller buttons */
+.login-btn-alt:active {
+	transform: scale(0.92);
+	box-shadow: 0 4px 10px rgba(0,0,0,0.08), inset 0 2px 8px rgba(0,0,0,0.06);
+	transition: transform .1s ease, box-shadow .1s ease;
+}
+
+.press-effect {
+  transition: transform .1s ease, box-shadow .1s ease;
+}
+
+.press-effect:active {
+  transform: scale(0.92);
+  box-shadow:
+    0 6px 15px rgba(0,0,0,0.12),
+    inset 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+

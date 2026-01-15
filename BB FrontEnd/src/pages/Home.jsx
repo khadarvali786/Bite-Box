@@ -33,9 +33,9 @@ export default function Home() {
 
           <div className="hero-buttons mb-20">
             {/* Order Now */}
-            <Link to="/customer" className="btn-order group">
+            <Link to="/customer" className="btn-order group press-effect">
               <span className="flex items-center">
-                <span className="btn-icon">🍕</span>
+                <span className="btn-icon" aria-hidden="true"/>
                 <span>Order Now</span>
                 <svg
                   className="w-6 h-6 btn-order-arrow"
@@ -54,9 +54,9 @@ export default function Home() {
             </Link>
 
             {/* Restaurant Login */}
-            <Link to="/restaurant" className="btn-restaurant">
+            <Link to="/restaurant" className="btn-restaurant press-effect">
               <span className="flex items-center">
-                <span className="btn-icon">🏪</span>
+                <span className="btn-icon" aria-hidden="true"/>
                 <span>Restaurant Login</span>
               </span>
             </Link>

@@ -32,7 +32,7 @@ export default function Navbar() {
               {!user ? (
                 <Link
                   to="/login"
-                  className="px-4 py-2 text-primary font-semibold hover:bg-primary/10 rounded-lg transition-all"
+                  className="px-4 py-2 bg-[#ff5722] text-white font-semibold hover:bg-[#e64a19] rounded-lg transition-all login-btn press-effect"
                 >
                   Login
                 </Link>

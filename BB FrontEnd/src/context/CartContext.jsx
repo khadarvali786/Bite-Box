@@ -40,14 +40,29 @@ export const CartProvider = ({ children }) => {
 
       if (existingRestaurantIndex !== -1) {
         // ✅ MERGE new items into existing restaurant
-        const newItems = [
-          ...prev[existingRestaurantIndex].items,
-          ...restaurantCart.items,
-        ];
+        const existingItems = [...prev[existingRestaurantIndex].items];
+        
+        restaurantCart.items.forEach((newItem) => {
+          const existingItemIndex = existingItems.findIndex(
+            (item) => item.id === newItem.id
+          );
+          
+          if (existingItemIndex !== -1) {
+            // Item already exists - increase quantity
+            existingItems[existingItemIndex] = {
+              ...existingItems[existingItemIndex],
+              quantity: (existingItems[existingItemIndex].quantity || 1) + (newItem.quantity || 1),
+            };
+          } else {
+            // New item - add to cart
+            existingItems.push({ ...newItem, quantity: newItem.quantity || 1 });
+          }
+        });
+        
         const updatedCarts = [...prev];
         updatedCarts[existingRestaurantIndex] = {
           ...prev[existingRestaurantIndex],
-          items: newItems,
+          items: existingItems,
         };
         return updatedCarts;
       } else {

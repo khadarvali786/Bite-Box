@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, UserPlus, User, Loader2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { motion } from "framer-motion";
 
 export default function Login() {
   const [formData, setFormData] = useState({ 
@@ -35,7 +36,11 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-orange-50 to-yellow-50">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-orange-50 to-yellow-50">
       <div className="w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl p-8 border border-white/50">
         
         {/* Header - Smaller */}
@@ -150,6 +155,6 @@ export default function Login() {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

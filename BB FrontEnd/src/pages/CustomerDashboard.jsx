@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Search, MapPin, Clock, Star, ShoppingCart, ArrowLeft } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
+import { motion } from "framer-motion";
 
 const mockRestaurants = [
   {
@@ -85,7 +86,11 @@ const handleAddToCart = (restaurantId, item) => {
 };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-yellow-50 pt-12">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }} 
+      className="min-h-screen bg-gradient-to-br from-orange-50 to-yellow-50 pt-12">
       {/* Header */}
       <div className="bg-gradient-to-r from-orange-500 via-orange-600 to-yellow-500 text-white p-8 rounded-b-3xl shadow-2xl relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-1/2 animate-pulse"></div>
@@ -218,6 +223,6 @@ const handleAddToCart = (restaurantId, item) => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
