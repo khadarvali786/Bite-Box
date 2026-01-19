@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, UserPlus, User, Loader2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { motion } from "framer-motion";
+import RoleDropdown from "../components/RoleDropdown";
+
 
 export default function Login() {
   const [formData, setFormData] = useState({ 
@@ -36,11 +37,7 @@ export default function Login() {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-orange-50 to-yellow-50">
+    <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-orange-50 to-yellow-50">
       <div className="w-full max-w-sm bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl p-8 border border-white/50">
         
         {/* Header - Smaller */}
@@ -110,23 +107,39 @@ export default function Login() {
           </div>
 
           {/* Role Selector - Compact */}
-          <div>
+          {/* <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">As</label>
             <select
               value={formData.role}
               onChange={(e) => setFormData({...formData, role: e.target.value})}
-              className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all appearance-none cursor-pointer bg-white"
+              className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all appearance-none cursor-pointer bg-white text-center"
             >
-              <option value="customer">🍕 Customer</option>
-              <option value="restaurant">🏪 Restaurant</option>
+              <option value="customer" >Customer</option>
+              <option value="restaurant">Restaurant</option>
             </select>
-          </div>
+          </div> */}
+
+
+            {/* Role Selector - Custom Dropdown */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                As
+              </label>
+
+              <RoleDropdown
+                value={formData.role}
+                onChange={(val) =>
+                  setFormData({ ...formData, role: val })
+                }
+              />
+            </div>
+
 
           {/* Submit Button - Perfect Size */}
           <button
             type="submit"
             disabled={loading}
-            className={`w-full flex items-center justify-center py-3 px-6 text-lg font-bold rounded-xl transition-all duration-200 ${
+            className={`w-full flex items-center justify-center py-3 px-6 text-lg font-bold rounded-xl transition-all duration-200 press-effect ${
               loading
                 ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                 : 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 hover:shadow-lg hover:-translate-y-0.5 shadow-md'
@@ -155,6 +168,6 @@ export default function Login() {
           </button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

@@ -1,31 +1,81 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
+* {
+  font-family: 'Inter', sans-serif;
+}
 
-/* Global tap/press styles for buttons used across app */
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global tap/press styles for buttons - Mobile feel */
+.press-effect {
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.press-effect:active {
+  transform: scale(0.95);
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.1),
+    inset 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Login button specific */
 .login-btn:active {
 	transform: scale(0.92);
 	box-shadow: 0 6px 15px rgba(0,0,0,0.12), inset 0 4px 12px rgba(0,0,0,0.08);
 	transition: transform .1s ease, box-shadow .1s ease;
 }
 
-/* Alternate smaller buttons */
-.login-btn-alt:active {
-	transform: scale(0.92);
-	box-shadow: 0 4px 10px rgba(0,0,0,0.08), inset 0 2px 8px rgba(0,0,0,0.06);
-	transition: transform .1s ease, box-shadow .1s ease;
+/* Card tap effect */
+.card-press:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.press-effect {
-  transition: transform .1s ease, box-shadow .1s ease;
+/* All buttons get tap feedback */
+button:not(:disabled):active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
 }
 
-.press-effect:active {
-  transform: scale(0.92);
-  box-shadow:
-    0 6px 15px rgba(0,0,0,0.12),
-    inset 0 4px 12px rgba(0,0,0,0.08);
+/* Gradient button press */
+.gradient-btn:active {
+  transform: scale(0.95);
+  filter: brightness(0.95);
+}
+
+/* Smooth page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Remove tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 
